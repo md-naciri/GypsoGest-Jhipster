@@ -1,0 +1,24 @@
+{
+  "gypsoGestApp": {
+    "returned": {
+      "home": {
+        "title": "Returneds",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Returned",
+        "createOrEditLabel": "Create or edit a Returned",
+        "notFound": "No Returneds found"
+      },
+      "created": "A new Returned is created with identifier {{ param }}",
+      "updated": "A Returned is updated with identifier {{ param }}",
+      "deleted": "A Returned is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Returned {{ id }}?"
+      },
+      "detail": {
+        "title": "Returned"
+      },
+      "id": "ID",
+      "paymentCode": "Payment Code"
+    }
+  }
+}

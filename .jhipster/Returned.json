@@ -1,0 +1,17 @@
+{
+  "annotations": {
+    "changelogDate": "20240112112136"
+  },
+  "applications": "*",
+  "entityTableName": "returned",
+  "fields": [
+    {
+      "fieldName": "paymentCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Returned",
+  "relationships": [],
+  "searchEngine": "no"
+}

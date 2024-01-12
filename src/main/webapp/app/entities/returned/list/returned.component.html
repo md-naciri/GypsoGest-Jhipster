@@ -1,0 +1,86 @@
+<div>
+  <h2 id="page-heading" data-cy="ReturnedHeading">
+    <span jhiTranslate="gypsoGestApp.returned.home.title">Returneds</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="gypsoGestApp.returned.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-returned"
+        [routerLink]="['/returned/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="gypsoGestApp.returned.home.createLabel">Create a new Returned</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (returneds?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="gypsoGestApp.returned.home.notFound">No Returneds found</span>
+    </div>
+  }
+
+  @if (returneds && returneds.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="paymentCode">
+              <div class="d-flex">
+                <span jhiTranslate="gypsoGestApp.returned.paymentCode">Payment Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (returned of returneds; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/returned', returned.id, 'view']">{{ returned.id }}</a>
+              </td>
+              <td>{{ returned.paymentCode }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/returned', returned.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/returned', returned.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(returned)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

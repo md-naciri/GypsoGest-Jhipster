@@ -1,0 +1,36 @@
+{
+  "annotations": {
+    "changelogDate": "20240112112036"
+  },
+  "applications": "*",
+  "entityTableName": "item",
+  "fields": [
+    {
+      "fieldName": "gypseType",
+      "fieldType": "GypseType",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "Staff,Moulage,Plafond,MortierProjeteStandard,MortierProjeteUltra"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "unitPrice",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Item",
+  "relationships": [
+    {
+      "otherEntityName": "sale",
+      "otherEntityRelationshipName": "item",
+      "relationshipName": "sale",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

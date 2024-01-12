@@ -1,0 +1,24 @@
+{
+  "gypsoGestApp": {
+    "returned": {
+      "home": {
+        "title": "Returneds",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Returned",
+        "createOrEditLabel": "Créer ou éditer un Returned",
+        "notFound": "Aucun Returned trouvé"
+      },
+      "created": "Un nouveau Returned a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Returned avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Returned avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Returned {{ id }} ?"
+      },
+      "detail": {
+        "title": "Returned"
+      },
+      "id": "ID",
+      "paymentCode": "Payment Code"
+    }
+  }
+}

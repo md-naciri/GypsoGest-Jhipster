@@ -1,0 +1,12 @@
+{
+  "gypsoGestApp": {
+    "PaymentType": {
+      "null": "",
+      "Cheque": "Cheque",
+      "Effet": "Effet",
+      "Virement": "Virement",
+      "Versement": "Versement",
+      "Cash": "Cash"
+    }
+  }
+}

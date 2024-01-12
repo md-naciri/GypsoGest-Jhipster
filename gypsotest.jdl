@@ -1,0 +1,41 @@
+entity Client {
+  name String required
+}
+
+entity Sale {
+  date Instant required
+}
+
+entity Transaction {
+  date Instant required,
+  amount Double required,
+  paymentCode String required,
+  type PaymentType required
+}
+
+entity Item {
+  gypseType GypseType required,
+  quantity Double required,
+  unitPrice Double required
+}
+
+entity Returned {
+  paymentCode String required
+}
+
+enum GypseType {
+  Staff, Moulage, Plafond, MortierProjeteStandard, MortierProjeteUltra
+}
+
+enum PaymentType {
+  Cheque, Effet, Virement, Versement, Cash
+}
+
+relationship OneToMany {
+  Client{sale} to Sale{client},
+  Client{transaction} to Transaction{client}
+}
+
+relationship OneToMany {
+  Sale{item} to Item{sale}
+}
